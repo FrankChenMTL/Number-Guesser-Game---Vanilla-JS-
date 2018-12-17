@@ -1,6 +1,15 @@
+/*
+GAME FUNCTION:
+- Player must guess a number between a min and max
+- Player gets a certain amount of guesses
+- Notify player of guresses remaining
+- Notify the player of the correct answer if loose
+- Let player choose to play again
+*/
+
 let min = 1,
   max = 10,
-  winningNum = 2,
+  winningNum = getRandomNum(min, max),
   guessesLeft = 3;
 
 const game = document.querySelector('#game'),
@@ -47,6 +56,10 @@ function gameOver(won, msg) {
   guessBtn.className += 'play-again';
 }
 
+function getRandomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+
+}
 function setMessage(msg, color) {
   message.style.color = color;
   guessInput.style.borderColor = color;
